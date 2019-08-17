@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :authenticate_user,{only:[:new]}
+  before_action :authenticate_user! ,{only:[:new]}
   
   def index
     @topics = Topic.all.includes(:favorite_users,:favorites).order(created_at: :desc)
